@@ -9,6 +9,21 @@
 <body>
   <script>
 
+    //compare numbers next to each other
+    const arrayA = [13, 5, 11, 7, 23, 15];
+    function bubbleSort(a){
+      let answer=a; //light copy
+        for(let i = 0; i < a.length-1; i++){//max number being sorted first
+          for(let j = 0; j < a.length-i-1; j++){//deduct max numbers in order since they are already assigned
+            if(a[j] > a[j+1]){ 
+              [a[j], a[j+1]] = [a[j+1], a[j]] //if previous number > next number => switch the orders
+            }
+          }
+        }
+      return answer;
+    }
+
+    console.log(bubbleSort(arrayA))
   </script>
 </body>
 </html>
