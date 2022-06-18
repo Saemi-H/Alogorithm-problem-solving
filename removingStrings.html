@@ -8,16 +8,20 @@
 </head>
 <body>
   <script>
-    const string = "(A(BC)D)EF(G(H)(IJ)KLM(N)"
+    const string = "(A(BC)D)EF(G(H)(IJ)K)LM(N)"
     function removingStringsSurroundedByParentheses(string){
       let answer;
-      let stringToArray = string.split("");
-        for(let i = 0; i <stringToArray.length; i++ ){
-          if(stringToArray[i] === "("){
-            
-          }
+      let stackArray = [];
+        //pop if ")" and to find "("
+        for(let item of string){
+          if(item === ")"){
+            while(stackArray.pop() !== "(");
+            //else push in array
+          }else stackArray.push(item)
         }
-      return answer;
+        //array to string
+      answer = stackArray.join("");
+      return answer ;
     }
     console.log(removingStringsSurroundedByParentheses(string))
   </script>
