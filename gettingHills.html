@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //count how many peaks there are.
+        //peak = if surrounded numbers are smaller
+        function gettingHills(A){
+            let answer = 0; //count of the peaks
+            let n = A.length; //length of the array
+                let dx = [-1, 0, 1, 0]; //to compare surrounded numbers x-axis
+                let dy = [0, 1, 0, -1];//to compare surrounded numbers y-axis
+                let m = dx.length;
+                //looping through arrays
+                for(let i = 0; i < n; i++){
+                    for(let j = 0; j < n; j++){
+                        let flag = 1; //define whether it is flag by  0 /1
+                        for(let k = 0; k < 4; k++){
+                            let nx = i + dx[k]; //getting position of surrounded positions x-axis
+                            let ny = j + dy[k]; //getting position of surrounded positions y-axis
+                //compare x,y position with current position by looping dx dy
+                //add condition not calculating edges
+                            if(nx >=0 && nx < n&& ny>=0 && ny <n && A[nx][ny]>=A[i][j]){
+                                //break if there is any >= 
+                                flag = 0;
+                                break;
+                            }
+                        }
+                    if(flag) answer++;
+                    }
+                }
+
+            return answer;
+        }
+
+        const arrayA = [
+        [5, 3, 7, 2, 3],
+        [3, 7, 1, 6, 1],
+        [7, 2, 5, 3, 4],
+        [4, 3, 6, 4, 1],
+        [8, 7, 3, 5, 2]
+        ]
+        console.log(gettingHills(arrayA))
+    </script>
+</body>
+</html>
