@@ -1,3 +1,3 @@
 # Alogorithm-problem-solving
 
-##Inflearn JS algorithm problem-solving lecture
+## Inflearn JS algorithm problem-solving lecture
