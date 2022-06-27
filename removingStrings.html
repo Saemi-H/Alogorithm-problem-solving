@@ -11,13 +11,14 @@
     const string = "(A(BC)D)EF(G(H)(IJ)KLM(N)"
     function removingStringsSurroundedByParentheses(string){
       let answer;
-      let stringToArray = string.split("");
-        for(let i = 0; i <stringToArray.length; i++ ){
-          if(stringToArray[i] === "("){
-            
+      let stackArray = [];//new stack array
+        for(let item of string){
+          if(item === ")"){//when item is )
+            while(stackArray.pop() !== "("); //pop until item is (
           }
+          else stackArray.push(item); //push when item is not "("
         }
-      return answer;
+      return answer=stackArray;
     }
     console.log(removingStringsSurroundedByParentheses(string))
   </script>
