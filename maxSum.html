@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const arr = [
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+    ]
+        function getMaxSum(arr){
+            let answer;
+                // col, row sum initialize
+            let sum1 = sum2 = 0; //global state
+                // loop to sum each col, row
+            for(let i = 0; i < arr.length; i++){
+                sum1 = sum2 = 0;   // initialize everytime
+                for(let j = 0; j < arr.length; j++){
+                    sum1+=arr[i][j] //sum of row
+                    sum2+=arr[j][i] //sum of col
+                }
+                // find the max
+                answer = Math.max(sum1, sum2)
+            }
+                //initalize sum
+            sum1 = sum2 = 0
+                // diagonal sum
+            for(let i=0; i < arr.length; i++){
+                sum1 += arr[i][i] //diagonal from the left
+                sum2 += arr[i][arr.length-i -1] //diagonal from the right
+            }
+            answer = Math.max(sum1, sum2) //find the max sum
+            return answer;
+        }
+        console.log(getMaxSum(arr))
+    </script>
+</body>
+</html>

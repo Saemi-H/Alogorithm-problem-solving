@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //define if it could be trianle or not
+        function isItPossibleToBeTriangle(A){
+            let answer = "YES";
+                A.sort((a, b) => a-b); //sort by descending order
+                if(A[0] + A[1] < A[2]) answer = "NO"
+            return answer;
+        }
+
+        const array = [6, 7, 11]
+
+        console.log(isItPossibleToBeTriangle(array));
+
+    </script>
+</body>
+</html>
