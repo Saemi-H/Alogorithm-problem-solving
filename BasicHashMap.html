@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //use set, get for hash map 
+    function solution(stringArray){
+      let answer;
+      let set = new Map()
+        for(let str of stringArray){
+          if(set.has(str)) set.set(str, set.get(str) + 1); //if str is already in set array
+          else set.set(str, 1); //if str is not in set array
+        }
+        let max = Number.MIN_SAFE_INTEGER; // define max number
+        for(let [key, val] of set){ //find the key of max value 
+          if(val > max){
+            max = val;
+            answer = key;
+          }
+        }
+      return answer;
+    }
+
+    const stringArray = "BACBACCACCCBDEDE"
+    console.log(solution(stringArray));
+  </script>
+</body>
+</html>
