@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //combine 2 arrays
+    function solution(arrayA, arrayB){
+      let answer = [];
+        let n = arrayA.length;
+        let m = arrayB.length;
+        let p1=p2=0; //2pointers algorithm => set default pointers
+
+        while(p1 < n && p2 < m){//when they could be compared
+          if(arrayA[p1] <= arrayB[p2]) answer.push(arrayA[p1++]); //p1++ -> next element like for loop
+          else answer.push(arrayB[p2++]) //arrayB[p2] > arrayA[p1]
+        }
+        while(p1 < n) answer.push(arrayA[p1++]); //when arrayA has been left
+        while(p2 < m) answer.push(arrayB[p2++]); //when arrayB has been left
+
+      return answer;
+    }
+
+  const arrayA = [1, 3, 5];
+  const arrayB = [2, 3, 6, 7, 9];
+    console.log(solution(arrayA, arrayB));
+  </script>
+</body>
+</html>
