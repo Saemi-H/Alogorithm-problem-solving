@@ -26,3 +26,21 @@
     </script>
 </body>
 </html>
+
+<!-- 
+    //solution from the lecture:ripple="false"
+    //sort arrays first
+    and then compare elements in each array
+
+    arrayA.sort()
+    arrayB.sort()
+    while(p1 < arrayA.length && p2 < arrayB.length){
+        if(arrayA[p1] === arrayB[p2]){
+            answer.push(arrayA[p1++]);
+            p2++;
+        }
+        else if(arrayA[p1] < arrayB[p2]) p1++;
+        else p2++;
+    }
+
+ -->
