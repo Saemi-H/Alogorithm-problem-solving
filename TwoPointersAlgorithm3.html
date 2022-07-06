@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function solution(array, count){
+            let answer = 0; //++ when sum === count
+            let lp = rp = 0; //sum rt, if sum >= count lt++ sum-arr[lt]
+            let sum = 0;
+            for(rp =0; rp < array.length; rp++){
+                //sum
+                sum += array[rp];
+                //when sum === count
+                if(sum === count) answer ++;
+                //when sum >= count
+                while(sum >= count){
+                    sum -= array[lp++];
+                            //if sum === count
+                            if(sum === count) answer ++;
+                }
+            }
+            return answer;
+        }
+
+        const count = 6;
+        const array = [1, 2, 1, 3, 1, 1, 1, 2];
+        console.log(solution(array, count));
+    </script>
+</body>
+</html>
