@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            let answer;
+            let stackArray = [];
+            for(let num of str){
+                if(!isNaN(num)){
+                    stackArray.push(parseInt(num)); //parseInt**
+                }else{
+                    
+                    let rightNum;
+                    let leftNum;
+                    let result = 0;
+
+                    rightNum = stackArray.pop();
+                    leftNum = stackArray.pop();
+                    if(num === "+"){
+                        result = leftNum + rightNum;
+                        stackArray.push(result);
+                    }else if(num === "-"){
+                        result = leftNum - rightNum;
+                        stackArray.push(result);
+                    }else if(num === "*"){
+                        result = leftNum * rightNum;
+                        stackArray.push(result);
+                    }else if(num === "/"){
+                        result = leftNum / rightNum;
+                        stackArray.push(result);
+                    }
+                }
+            }
+
+            return answer = stackArray[0];
+        }
+
+        let str ="352+*9-";
+        console.log(solution(str))
+    </script>
+</body>
+</html>
