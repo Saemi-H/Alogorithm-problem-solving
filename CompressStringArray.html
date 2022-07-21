@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //if 1 = omit
+        function solution(string){
+            let answer = ""; //answer is in string
+            //initialize count
+            let count = 1;
+            // new string should have count right after the letter
+            string = string + " "
+            //can't use "for..of" => index should be used
+            for(let i = 0; i < string.length -1; i++){
+                if(string[i] === string[i+1]) count++;
+                else{
+                    answer += string[i]; //string would be in the answer =>  KHSE
+                    if(count > 1) answer += String(count) //count to be string
+                    count = 1; //reset the count
+                }
+            }
+            return answer;
+        }
+
+        const string = "KKHSSSSSSE";
+        console.log(solution(string));
+    </script>
+</body>
+</html>
