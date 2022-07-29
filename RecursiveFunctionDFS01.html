@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function solution(n){
+            // create recursive function DFS
+            // L = param: Level
+            function DFS(L){
+                if(L === 0) return; // return = deactiactivate the function including 0
+                else{
+                    DFS(L-1);
+                    console.log(L); // order of DFS and console is important! 123 || 321 // stack frame working
+                }
+            }
+
+            //activate DFS
+            DFS(n)
+        }
+        
+        const n = 3; //answer : 123
+        console.log(solution(n));
+    </script>
+</body>
+</html>
